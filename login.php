@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // User does not exist in the database
         $response['message'] = 'User does not exist in the database.';
     }
-
     // Set response headers and echo the response in JSON format
     header('Content-Type: application/json');
     echo json_encode($response);

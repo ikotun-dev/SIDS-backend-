@@ -1,4 +1,18 @@
 <?php
+
+// Enable CORS headers
+header("Access-Control-Allow-Origin: *"); // Replace * with the appropriate origin URL if needed
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Credentials: true");
+
+// Handle preflight requests
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Return response for preflight requests
+    header('HTTP/1.1 200 OK');
+    exit();
+}
+
 class Connect extends PDO
 {
     public function __construct()
